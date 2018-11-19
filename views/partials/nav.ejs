@@ -1,0 +1,44 @@
+<nav class="navbar">
+    <ul class="navbar-nav mr-auto">
+        <% if(vm.accessAllowed('manage:bills')) {%>
+          <li class="nav-item">
+              <a class="nav-link" href='/account/bills'>Bills & payments</a>
+          </li>
+        <%}%>
+
+        <% if(vm.accessAllowed('manage:usage')) {%>
+          <li class="nav-item">
+              <a class="nav-link" href='/account/usage'>Current usage</a>
+          </li>
+        <%}%>
+        <% if(vm.accessAllowed('manage:plan')) {%>
+          <li class="nav-item">
+              <a class="nav-link" href='/account/plan'>Plan & add-ons</a>
+          </li>
+        <%}%>
+        <% if(vm.accessAllowed('manage:upgrades')) {%>
+          <li class="nav-item">
+              <a class="nav-link" href='/account/upgrades'>Upgrades</a>
+          </li>
+        <%}%>
+        <% if(vm.accessAllowed('manage:devices')) {%>
+          <li class="nav-item">
+              <a class="nav-link" href='/account/devices'>Manage device</a>
+          </li>
+        <%}%>
+        <% if(vm.accessAllowed('manage:settings')) {%>
+          <li class="nav-item">
+              <a class="nav-link" href='/account/settings'>Account settings</a>
+          </li>
+        <%}%>
+        <% if(vm.accessAllowed('manage:broadband')) {%>
+          <li class="nav-item">
+              <a class="nav-link" href='/account/broadband'>My Broadband</a>
+          </li>
+        <%}%>
+
+        <li class="nav-item">
+            <a class="nav-link" href='/logout'>Logout</a>
+        </li>
+    </ul>
+</nav>

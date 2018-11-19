@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+     </head>
+  <body>
+    <div class="jumbotron">
+        <h1><%= title %></h1>
+        <% if (vm.authorized_access) { %>
+            <p class="lead">Welcome <strong><%= vm.authorized_access.owner_email%></strong> (<%=vm.displayName%>)</p>
+        <% } else { %>
+            <p class="lead">Welcome <%= vm.displayName %></p>
+        <% } %>
+        
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <% include partials/nav %>
+        </div>
+       <div >
+       <% if (!vm.authorized_access) { %>
+            <div class="container">
+                <% if (vm.access_grants) { %>   
+                 <div class="card-deck">
+                 <% vm.access_grants.forEach(ag=>{ %>
+                    <div class="card w-75">
+                        <div class="card-body">
+                            <h5 class="card-title">User granted access</h5>
+                            <p class="card-text"><strong><%=ag.owner_email%></strong> has granted you access to his/her account for: <pre> <%=ag.permissions%> </pre> </p>
+                            <a href="/access/switch?ro=<%=ag.owner_id%>&permissions=<%=ag.permissions%>" class="btn btn-danger">Login with granted access</a>
+                        </div>
+                    </div>
+                    <%});%>
+                    </div>
+                <% } else { %>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Manage access</h5>
+                            <p class="card-text">Give limited access to your account to another user</p>
+                            <a href="/access" class="btn btn-primary">Manage access</a>
+                            <a href="/access/summary" class="btn btn-info">View access</a>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+        <% } %>
+       </div>
+    </div>
+  </body>
+</html>

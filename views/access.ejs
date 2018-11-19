@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">  </head>
+  <body>
+  <div class="container">
+    <h1><%= title %></h1>
+    <form method="post">
+      <div class="row">
+        <div class="col-sm-1">
+          <label for="email">email</label>
+        </div>
+        <div class="col-sm-1">
+          <input type="email" required id="email" name="email"/>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-sm-1">
+          <label for="permissions">permissions</label>
+        </div>
+        <div class="col" id="permissions">
+          <div class="checkbox">
+            <label><input type="checkbox" checked=true name="permissions" value="manage:bills">manage bills</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" name="permissions" value="manage:plans">manage plans</label>
+          </div>
+          
+          <div class="checkbox">
+            <label><input type="checkbox" name="permissions" value="manage:upgrades">manage upgrades</label>
+          </div>
+
+          <div class="checkbox">
+            <label><input type="checkbox" name="permissions" value="manage:devices">manage devices</label>
+          </div>
+
+          <div class="checkbox">
+            <label><input type="checkbox" name="permissions" value="manage:settings">manage settings</label>
+          </div>
+        
+          <div class="checkbox">
+            <label><input type="checkbox" name="permissions" value="manage:broadband">manage broadband</label>
+          </div>
+
+          <div class="checkbox">
+            <label><input type="checkbox" name="permissions" value="manage:usage">manage usage</label>
+          </div>
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-1">
+          <input type="submit" value="Grant" class="btn btn-primary"/>
+        </div>
+      </div>
+    </form>
+  </div>
+  </body>
+</html>

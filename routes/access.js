@@ -5,7 +5,7 @@ const express = require('express'),
 const api = require('../lib/apiClient');
 
 router.get('/', function(req, res) {
-  res.render('access', { title: 'manage access' });
+  res.render('access', { title: 'Manage access' });
 });
 
 router.get('/switch', function(req, res, next) {
